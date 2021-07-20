@@ -106,7 +106,7 @@ public class ProductController {
 	@PostMapping("/add")
 	public ResponseEntity<ProductDTO> addProduct(@RequestBody ProductDTO dto) {
 		ProductDTO temp = dto;
-		log.info("Product: " + dto.toString());
+		log.info("save Product: " + dto.toString());
 		if (!dto.getTitle().isEmpty()) {
 			productService.save(dto);
 		}
@@ -117,6 +117,7 @@ public class ProductController {
 	@PutMapping("/edit")
 	public ResponseEntity<ProductDTO> editProduct(@RequestBody @Valid ProductDTO dto) {
 		ProductDTO temp = dto;
+		log.info("Edit Product: "+dto.toString());
 		productService.save(temp);
 		return new ResponseEntity<>(temp, HttpStatus.OK);
 	}
