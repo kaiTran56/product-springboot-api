@@ -2,12 +2,14 @@ package com.tranquyet.entity;
 
 import java.util.List;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapKeyColumn;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -34,7 +36,11 @@ public class ProductEntity extends BasedEntity{
 	@JoinColumn(name="id_category")
 	private CategoryEntity category;
 	
-	@ElementCollection(fetch = FetchType.LAZY)
+	@ElementCollection
+	
+	@MapKeyColumn(name = "listImage", columnDefinition = "LONGTEXT")
+	@Column(name = "listImage", columnDefinition = "LONGTEXT")
+	@CollectionTable(name="product_image")
 	private List<String> listImage;
 
 }
