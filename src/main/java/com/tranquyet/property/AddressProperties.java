@@ -10,7 +10,6 @@ import lombok.Setter;
 @ConfigurationProperties(prefix = "file")
 @Setter
 @Getter
-public class FileStorageProperties {
+public class AddressProperties {
 	private String uploadDir;
-
 }

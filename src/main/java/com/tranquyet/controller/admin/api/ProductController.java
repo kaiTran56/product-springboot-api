@@ -39,6 +39,8 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
+
+
 	@GetMapping
 	public ResponseEntity<ProductDTO> getAll(@RequestParam(name = "page", required = false) Optional<Integer> page,
 			@RequestParam(name = "limit", required = false) Optional<Integer> limit,
@@ -63,7 +65,7 @@ public class ProductController {
 		dto.setCurrentPage(page.orElse(0));
 
 		dto.setListResult(productService.findAll(pageRequest));
-
+		
 		return new ResponseEntity<>(dto, HttpStatus.OK);
 	}
 
@@ -117,7 +119,7 @@ public class ProductController {
 	@PutMapping("/edit")
 	public ResponseEntity<ProductDTO> editProduct(@RequestBody @Valid ProductDTO dto) {
 		ProductDTO temp = dto;
-		log.info("Edit Product: "+dto.toString());
+		log.info("Edit Product: " + dto.toString());
 		productService.save(temp);
 		return new ResponseEntity<>(temp, HttpStatus.OK);
 	}
