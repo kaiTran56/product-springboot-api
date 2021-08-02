@@ -39,7 +39,9 @@ public class UserEntity extends BasedEntity {
 	private String status;
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "id_user", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_role", referencedColumnName = "id"))
+	@JoinTable(name = "user_role", 
+				joinColumns = @JoinColumn(name = "id_user", referencedColumnName = "id"), 
+				inverseJoinColumns = @JoinColumn(name = "id_role", referencedColumnName = "id"))
 	private List<RoleEntity> roleEntity = new ArrayList<RoleEntity>();
 
 }

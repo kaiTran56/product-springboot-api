@@ -1,4 +1,4 @@
-package com.tranquyet.domain;
+package com.tranquyet.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,13 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Setter
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
+@Setter
 @ToString
-public class UploadFileResponse {
+@AllArgsConstructor
+@NoArgsConstructor
+public class TopicDTO extends BasedDTO<TopicDTO>{
 	
-	private String fileDownloadUri;
-
+	private String name;
+	
 }

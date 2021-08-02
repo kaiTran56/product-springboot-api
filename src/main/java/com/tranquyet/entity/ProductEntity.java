@@ -36,8 +36,7 @@ public class ProductEntity extends BasedEntity{
 	@JoinColumn(name="id_category")
 	private CategoryEntity category;
 	
-	@ElementCollection
-	
+	@ElementCollection	
 	@MapKeyColumn(name = "listImage", columnDefinition = "LONGTEXT")
 	@Column(name = "listImage", columnDefinition = "LONGTEXT")
 	@CollectionTable(name="product_image")
